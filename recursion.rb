@@ -96,9 +96,9 @@ def merge_sort(arr)
 end
 
 def merge(left, right)
-  if left[0] > right[0]
-    return [right[0], left[0]]
+  if left[-1] > right[0]
+    return [right[0], left[-1]]
   else
-    [left[0], right[0]]
+    [left[-1], right[0]]
   end
 end
