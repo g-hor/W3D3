@@ -18,10 +18,18 @@ def exp(b, n)
 end
 
 class Array
-  def self.dup(arr)
-   return self if self.none? { |ele| ele.is_a?(Array) }
-   
+
+  def deep_dup
+   return self.dup if self.none? { |ele| ele.is_a?(Array) }
+
+   self.each do |ele|
+    if ele.is_a?(Array)
+      ele = ele.deep_dup
+    end
+   end  
+
   end
+
 end
 
 
