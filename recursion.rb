@@ -1,3 +1,5 @@
+require 'byebug'
+
 def range(start, last)
   # return start if last == start
   # arr = []
@@ -17,7 +19,7 @@ end
 
 class Array
   def self.dup(arr)
-
+    
   end
 end
 
@@ -31,3 +33,21 @@ def rec_fib(n)
   prev_row = rec_fib(n - 1)
   prev_row << prev_row[-1] + prev_row[-2]
 end
+
+
+def bsearch(arr, targ)
+  return nil if arr.empty?
+  return arr.index(targ) if arr[0] == targ
+  # debugger
+  mid = arr.length / 2
+  return mid if arr[mid] == targ
+  left = arr[0...mid]
+  right = arr[mid + 1..-1]
+  if targ > arr[mid]
+    bsearch(right, targ)
+  else
+    bsearch(left, targ)
+  end
+end
+
+p bsearch([1,3,4,5,9], 5)
