@@ -19,9 +19,11 @@ end
 
 class Array
   def self.dup(arr)
-    
+   return self if self.none? { |ele| ele.is_a?(Array) }
+   
   end
 end
+
 
 def iter_fib(n)
   (0..n).inject { |sum, n| sum + n }
@@ -53,4 +55,4 @@ def bsearch(arr, targ)
   end
 end
 
-p bsearch([1,2,3,5],4)
+# p bsearch([1,2,3,5],4)
