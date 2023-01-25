@@ -85,12 +85,14 @@ def merge_sort(arr)
   left = arr[0..mid]
   right = arr[mid + 1..-1]
 
-  if left.length == 1 && right.length == 1
-    return merge(left, right) 
-  else
-    merge_sort(left) + merge_sort(right)
-  end
-
+  # if left.length == 1 && right.length == 1
+  #   return merge(left, right) 
+  # else
+  #   merge_sort(left) + merge_sort(right)
+  # end
+  return arr if left.length == 1 
+  return arr if right.length == 1
+  merge(merge_sort(left), merge_sort(right))
 end
 
 def merge(left, right)
