@@ -36,7 +36,8 @@ end
 
 
 def bsearch(arr, targ)
-  return nil if !arr.include?(targ)
+  # debugger
+  return nil if arr.empty? 
   return arr.index(targ) if arr[0] == targ
   # debugger
   mid = (arr.length - 1) / 2
@@ -45,10 +46,11 @@ def bsearch(arr, targ)
   right = arr[mid + 1..-1]
   if targ > arr[mid]
     result = bsearch(right, targ)
-     return result + mid + 1 
+    return nil if right.empty?
+    return result + mid + 1 
   else
     bsearch(left, targ)
   end
 end
 
-p bsearch([1,2,3],1)
+p bsearch([1,2,3,5],4)
