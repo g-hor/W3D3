@@ -45,8 +45,8 @@ class Array
   end
 end
 
-arr = [1,2,[3,[4,[5]]]]
-p arr.deep_dup
+# arr = [1,2,[3,[4,[5]]]]
+# p arr.deep_dup
 
 def iter_fib(n)
   (0..n).inject { |sum, n| sum + n }
@@ -78,3 +78,25 @@ def bsearch(arr, targ)
 end
 
 # p bsearch([1,2,3,5],4)
+
+
+def merge_sort(arr)
+  mid = (arr.length - 1) / 2
+  left = arr[0..mid]
+  right = arr[mid + 1..-1]
+
+  if left.length == 1 && right.length == 1
+    return merge(left, right) 
+  else
+    merge_sort(left) + merge_sort(right)
+  end
+
+end
+
+def merge(left, right)
+  if left[0] > right[0]
+    return [right[0], left[0]]
+  else
+    [left[0], right[0]]
+  end
+end
